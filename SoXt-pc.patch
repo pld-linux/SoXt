@@ -1,0 +1,14 @@
+--- soxt/SoXt.pc.cmake.in.orig	2020-04-19 22:57:44.000000000 +0200
++++ soxt/SoXt.pc.cmake.in	2020-12-02 06:33:10.382683774 +0100
+@@ -13,9 +13,10 @@
+ Name: @PROJECT_NAME@
+ Description: @PROJECT_DESCRIPTION@
+ Version: @PROJECT_VERSION@
+-Requires: Coin, Motif, X11, OpenGL
++Requires: Coin
+ Conflicts:
+ Libs: -L${libdir} -l@PROJECT_NAME@ @SOXT_EXTRA_LDFLAGS@ @SOXT_EXTRA_LIBS@
++Libs.private: -lmotif -lXt -lX11 -lGL
+ Cflags: -I${includedir} @SOXT_EXTRA_CFLAGS@ @SOXT_EXTRA_CPPFLAGS@
+ 
+ frameworkdir=@frameworkdir@
