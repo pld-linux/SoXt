@@ -61,7 +61,7 @@ Pliki nagłówkowe biblioteki SoXt.
 Summary:	API documentation for SoXt library
 Summary(pl.UTF-8):	Dokumentacja API biblioteki SoXt
 Group:		Documentation
-%{?noarchpackage}
+BuildArch:	noarch
 
 %description apidocs
 API documentation for SoXt library.
