@@ -5,13 +5,13 @@
 Summary:	Xt/Motif GUI component toolkit library for Coin
 Summary(pl.UTF-8):	Biblioteka komponentu graficznego interfejsu Xt/Motif dla biblioteki Coin
 Name:		SoXt
-Version:	1.4.0
+Version:	1.4.1
 Release:	1
 License:	BSD
 Group:		X11/Libraries
 #Source0Download: https://github.com/coin3d/soxt/releases
-Source0:	https://github.com/coin3d/soxt/releases/download/SoXt-%{version}/soxt-%{version}-src.tar.gz
-# Source0-md5:	566b79a9b8d88014726ad8054cd03698
+Source0:	https://github.com/coin3d/soxt/releases/download/v%{version}/soxt-%{version}-src.tar.gz
+# Source0-md5:	6856751e41cab5e13621ab1f3b5e8542
 Patch0:		%{name}-pc.patch
 URL:		https://github.com/coin3d/soxt
 BuildRequires:	Coin-devel >= 4.0.0
@@ -97,8 +97,6 @@ rm -rf $RPM_BUILD_ROOT
 # to common names etc.
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/man3/{_*_,components,devices,misc,viewers}.3
 %endif
-# bogus location
-%{__rm} -r $RPM_BUILD_ROOT%{_infodir}/SoXt1
 
 %clean
 rm -rf $RPM_BUILD_ROOT

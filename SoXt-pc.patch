@@ -1,14 +1,22 @@
---- soxt/SoXt.pc.cmake.in.orig	2020-04-19 22:57:44.000000000 +0200
-+++ soxt/SoXt.pc.cmake.in	2020-12-02 06:33:10.382683774 +0100
-@@ -13,9 +13,10 @@
- Name: @PROJECT_NAME@
- Description: @PROJECT_DESCRIPTION@
- Version: @PROJECT_VERSION@
--Requires: Coin, Motif, X11, OpenGL
-+Requires: Coin
+--- soxt/CMakeLists.txt.orig	2024-02-03 21:54:49.000000000 +0100
++++ soxt/CMakeLists.txt	2024-02-09 19:01:25.196148870 +0100
+@@ -149,7 +149,8 @@ endif()
+ 
+ find_package(Coin REQUIRED)
+ 
+-set(SO${GUI}_PKG_DEPS "Coin Motif X11 Xpm Xmu OpenGL")
++set(SO${GUI}_PKG_DEPS "Coin")
++set(SO${GUI}_PKG_DEP_LIBS "-lmotif -lXmu -lXt -lX11 -lXpm -lGL")
+ 
+ # ##########################################################################
+ # Setup build environment
+--- soxt/SoXt.pc.cmake.in.orig	2024-02-09 17:11:28.075221873 +0100
++++ soxt/SoXt.pc.cmake.in	2024-02-09 19:01:53.652661375 +0100
+@@ -16,6 +16,7 @@ Version: @PROJECT_VERSION@
+ Requires: @SOXT_PKG_DEPS@
  Conflicts:
- Libs: -L${libdir} -l@PROJECT_NAME@ @SOXT_EXTRA_LDFLAGS@ @SOXT_EXTRA_LIBS@
-+Libs.private: -lmotif -lXt -lX11 -lGL
- Cflags: -I${includedir} @SOXT_EXTRA_CFLAGS@ @SOXT_EXTRA_CPPFLAGS@
+ Libs: -L${libdir} @SOXT_PKG_LIBS@
++Libs.private: @SOXT_PKG_DEP_LIBS@
+ Cflags: -I${includedir} @SOXT_PKG_FLAGS@
  
  frameworkdir=@frameworkdir@
